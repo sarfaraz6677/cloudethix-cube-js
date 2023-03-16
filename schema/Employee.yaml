@@ -1,0 +1,23 @@
+cubes:
+  - name: Employee
+    sql: SELECT * FROM cubejs.employee
+      # preAggregations:
+      # Pre-Aggregations definitions go here
+      # Learn more here: https://cube.dev/docs/caching/pre-aggregations/getting-started
+    joins: []
+    measures:
+      - name: count
+        type: count
+        drillMembers: [id, name]
+    dimensions:
+      - name: email
+        sql: email
+        type: string
+      - name: id
+        sql: id
+        type: number
+        primaryKey: true
+      - name: name
+        sql: name
+        type: string
+    dataSource: default
