@@ -1,0 +1,31 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUMvakNDQWVhZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJek1ETXlNREV3TWpFek1Wb1hEVE16TURNeE56RXdNakV6TVZvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBTkJoClh0cGpMd0E5aEU0NkV1RXFLeGk0UmdQcnptZmhNblgyL0FXaDRIY3BQZnovRVRSTFJrU1ZkVUlOejJLNDUrTGwKRHFOMnMxTnp4NWY1NlpBY05ia3R0V0FRY2ZCaWdXTXRmbEYzM0JRNTBIVFFhdi9BRTJKV0ZBem9IU0ZiNVQxYgoxaXNLaDVMRTJmMW1LV3drK1I3UWs1MXdvY2dBVmNveHIzZEprKzNDZjZ0M2ZxUU9OTFNLNDhpNkpzU010aGdlCll6dHRzVVhoaVdFS282c1ByR1FLQ3NiUm93Wnl6TzI3blZXRFVmK2ZQU25HTk9yOGEzNDI2MVRTK2xEaGFvY1cKUzVUNWl5VGwwUTNBdDF5Q2RFZjBmT2VGR0h6bjVmNG1jSk1QTzlSVjlkRkV2emkyWFVCbjFGVVM1Vk5KNFRHSApaTmMzdUtIK0lXVUQ0UnFSL2NrQ0F3RUFBYU5aTUZjd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZGNkN1bDI3RGdrcVR0VzJyd1U4K0Q3aUhSaERNQlVHQTFVZEVRUU8KTUF5Q0NtdDFZbVZ5Ym1WMFpYTXdEUVlKS29aSWh2Y05BUUVMQlFBRGdnRUJBQnBqMHZHaVgyTjBIajZGU0VhdApVLzFHNkhBb2krWWpDTmlTa2c4NHJlVW1VUW5xMjBDYnBrbnllTDdaTTRnbytVYkpBaExDYkl0cUczOTBsb0JJCnlYeSswQ3BSQVZURVA2UHJoZEMxcFlwQ25kazZlbzA5MHdDSkZqcEtIZ3hESUNNQ2t0Wk1DdzY4amhpZjZTamcKSWRyWlU5OEhZZk1jV2R0dXZrRUNFK2ZsZVZWTXhtcTVhRnlDZ3gzbFRWaTUxNDdHTmcweitOaU1HSEg1MjJ6Zgo2NjRGUGhnQnczUUVCdkJ1WE5CVldmeVdrS2dTL25OZ3FLdXRRd2I3SWhsbS95V1JCVjVvd2NqTE0wNEo0cmloCjRLc1Iyd3JvTmxUb1g1OXFiS29yY2RIeFp4YTZBbE9tUnNaRk52UGdiWFJCcHR6cFNldmFVZlZ4TnJtMjFEUDcKcGkwPQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
+    server: https://2A27ADDD3782E7853D7B246CDEFB376D.gr7.ap-south-1.eks.amazonaws.com
+  name: eks-cube-test.ap-south-1.eksctl.io
+contexts:
+- context:
+    cluster: eks-cube-test.ap-south-1.eksctl.io
+    user: iam-root-account@eks-cube-test.ap-south-1.eksctl.io
+  name: iam-root-account@eks-cube-test.ap-south-1.eksctl.io
+current-context: iam-root-account@eks-cube-test.ap-south-1.eksctl.io
+kind: Config
+preferences: {}
+users:
+- name: iam-root-account@eks-cube-test.ap-south-1.eksctl.io
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1beta1
+      args:
+      - eks
+      - get-token
+      - --cluster-name
+      - eks-cube-test
+      - --region
+      - ap-south-1
+      command: aws
+      env:
+      - name: AWS_STS_REGIONAL_ENDPOINTS
+        value: regional
+      provideClusterInfo: false
